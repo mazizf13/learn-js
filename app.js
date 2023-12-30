@@ -202,3 +202,12 @@
 // }
 
 // SCOPE
+// let programming = "Javascript";
+
+// function typeSafe() {
+//   let programming = "Typescript";
+//   console.log(programming);
+// }
+// typeSafe();
+
+// console.log(programming);
