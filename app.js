@@ -284,4 +284,41 @@
 
 // lamarKerja();
 
+// FUNCTION EXPRESSIONS
+// function perpangkatan(nilai) {
+//   return nilai * nilai;
+// }
 
+// let hasil = perpangkatan(5);
+
+// singkatnya pakek function expression
+// const hasilPerpangkatan = function (nilai) {
+//   return nilai * nilai;
+// };
+
+// hasilPerpangkatan(6);
+
+// FUNCTION SEBAGAI ARGUMEN
+// function duaKali(func) {
+//   func();
+//   func();
+// }
+
+// function lemparDadu() {
+//   const nilai = Math.floor(Math.random() * 6) + 1;
+//   console.log(nilai);
+// }
+
+//FUNCTION BERNILAI BALIK FUNCTION
+function hasilnyaAdalahFunction() {
+  const rand = Math.random();
+  if (rand > 0.1) {
+    return function () {
+      console.log("Selamat, angkanya lebih besar");
+    };
+  } else {
+    return function () {
+      console.log("Maaf, mungkin bisa coba lagi");
+    };
+  }
+}
