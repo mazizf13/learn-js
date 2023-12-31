@@ -310,15 +310,64 @@
 // }
 
 //FUNCTION BERNILAI BALIK FUNCTION
-function hasilnyaAdalahFunction() {
-  const rand = Math.random();
-  if (rand > 0.1) {
-    return function () {
-      console.log("Selamat, angkanya lebih besar");
-    };
-  } else {
-    return function () {
-      console.log("Maaf, mungkin bisa coba lagi");
-    };
-  }
-}
+// function hasilnyaAdalahFunction() {
+//   const rand = Math.random();
+//   if (rand > 0.1) {
+//     return function () {
+//       console.log("Selamat, angkanya lebih besar");
+//     };
+//   } else {
+//     return function () {
+//       console.log("Maaf, mungkin bisa coba lagi");
+//     };
+//   }
+// }
+
+// METHOD
+// function myFun() {
+//   //function biasa
+//   console.log("Hi");
+//   return "Hello";
+// }
+
+// const myMath = {
+//   //object
+//   perkalian: function (x, y) {
+//     //method
+//     return x * y;
+//   },
+// };
+
+// const aritmatika = {
+//   perkalian: function (x, y) {
+//     return x * y;
+//   },
+//   pembagian: function (x, y) {
+//     return x / y;
+//   },
+//   pangkat: function (x) {
+//     return x * x;
+//   },
+// };
+
+// // THIS ADALAH KUNCI
+// const saya = {
+//   nama: "aziz",
+//   pacar: "memed",
+//   ngomong: function () {
+//     return `Halo nama saya ${this.nama}. Saya punya pacar namanya ${this.pacar}.`;
+//   },
+// };
+
+// cara panggilnya adalah saya.ngomong()
+// namanya juga bisa dirubah pakek saya.nama = "Aziz"
+
+// TRY AND CATCH
+// function teriak(msg) {
+//   try {
+//     console.log(msg.toUpperCase());
+//   } catch (error) {
+//     console.log(error);
+//     console.log("Silahkan masukkan tipe data string pada argumen teriak()");
+//   }
+// }
