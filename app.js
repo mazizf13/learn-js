@@ -201,7 +201,9 @@
 //   return a + b;
 // }
 
-// SCOPE
+// SCOPE;
+// output di luar dan di dalam fungsi
+
 // let programming = "Javascript";
 
 // function typeSafe() {
@@ -211,3 +213,75 @@
 // typeSafe();
 
 // console.log(programming);
+
+// scope
+
+// let linux = "Redhat";
+
+// function easyLinux() {
+//   let linux = "Debian";
+//   linux; //Debian
+// }
+
+// linux; //Redhat
+
+// eror tidak bisa
+// function tyoe() {
+//   let programming = "Typerscritpt";
+// }
+
+// tyoe();
+
+// BLOCKED SCOPE VARIABLE
+// tidak bisa dipanggil variabel di dalam scope (kecuali pakek var)
+// let tinggi = 8;
+// if (tinggi > 5) {
+//   let lebar = 10;
+//   //   console.log(lebar);
+// }
+// // console.log(lebar);
+
+// for (let index = 0; index < 10; index++) {
+//   const indexNumber = index;
+// //   console.log(indexNumber);
+// }
+// console.log(indexNumber);
+
+// let tinggi = 8;
+// if (tinggi > 5) {
+//   var lebar = 10;
+//   //   console.log(lebar);
+// }
+// console.log("lebar: ", lebar);
+
+// for (let index = 0; index < 10; index++) {
+//   var indexNumber = index;
+//   //   console.log(indexNumber);
+// }
+// console.log("indexNumber", indexNumber);
+
+// LEXICAL SCOPE
+// function fungsiLuar() {
+//   const nilaiLuar = "Ini adalah luar";
+
+//   function fungsiDalam() {
+//     let nilaiDalam = `Di dalam mengambil ${nilaiLuar}`;
+//     console.log(nilaiDalam);
+//   }
+
+//   fungsiDalam();
+// }
+
+// function lamarKerja() {
+//   const jabatan = "Programmer";
+
+//   function orangDalam() {
+//     let kenalan = `Orang dalam bisa memasukkan ${jabatan}`;
+//     console.log(kenalan);
+//   }
+//   orangDalam();
+// }
+
+// lamarKerja();
+
+
