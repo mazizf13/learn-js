@@ -371,3 +371,331 @@
 //     console.log("Silahkan masukkan tipe data string pada argumen teriak()");
 //   }
 // }
+
+// FOREACH
+// dapat menggunakan callback function yang berarti dapat memanggil sebuah fungsi sebanyak jumlah element yang dimiliki array
+// const angka = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// angka.forEach(function (n) {
+//   console.log(n * n);
+// });
+
+// const angka = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// //bukan di bawah ini
+// // function print(element) {
+// //   console.log(element);
+// // }
+
+// // // print(angka[0]);
+// // // print(angka[1]);
+// // angka.forEach(print);
+
+// //callback function
+// angka.forEach(function (el) {
+//   if (el % 2 === 0) {
+//     console.log(el);
+//   }
+// });
+
+// const animes = [
+//   {
+//     title: "Attack on Titan",
+//     rating: 90,
+//   },
+//   {
+//     title: "One Peace",
+//     rating: 99,
+//   },
+//   {
+//     title: "Bleach",
+//     rating: 89,
+//   },
+//   {
+//     title: "Naruto",
+//     rating: 99,
+//   },
+// ];
+
+// animes.forEach(function (anime) {
+//   console.log(`${anime.title} - ${anime.rating}/100`);
+// });
+
+// MAP METHOD
+// map nilai baliknya adalah array baru yang sudah dimodifikasi melalui callbak function dari suatu array
+// const animes = [
+//   {
+//     title: "Attack on Titan",
+//     rating: 90,
+//   },
+//   {
+//     title: "One Peace",
+//     rating: 99,
+//   },
+//   {
+//     title: "Bleach",
+//     rating: 89,
+//   },
+//   {
+//     title: "Naruto",
+//     rating: 99,
+//   },
+// ];
+
+// const animeList = animes.map(function (anime) {
+//   return anime.title.toUpperCase();
+// });
+
+// ARRRAW FUNCTION
+// function perpangkatan(x) {
+//   return x * x;
+// }
+
+// const hasil = perpangkatan(5);
+
+//function expression
+// const hasil = function(x) {
+//     return x*x;
+// }
+
+//ini baru arrow
+// const perpangkatan = (x) => {
+//   return x * x;
+// };
+
+// const random = () => {
+//   return Math.floor(Math.random() * 1000);
+// };
+
+// implisit return arow functiom
+// tidak perlu nmenggunakan return jika fungsi tersebut sederhana, ubah kurung kurawal jadi kurung biasa, gaperlu titik koma
+// const random = () => (
+//   Math.floor(Math.random() * 1000)
+// );
+
+// kalo banyak akan eror, js akan bingung karena pakek kurng biasa dan binung mana yang di return
+// const random = () => (
+//     let value = 0123
+//     Math.floor(Math.random() * 1000)
+//   );
+// kalo ini ngagk pakek kurung juga gapapa sebenernya, tapi terlalu panjang lebih baik dipakek kurung
+
+// singkat lagi
+// const add = (a,b) => a+b;
+
+//SET TIMEOUT DAN SET INTERVAL
+//callback function yang bukan berasa; dari array. FUngsinya untuk memberi waktu jeda dan melakukan perulangan setiap waktu yang ditentukan.
+// console.log("Halooo meltonggg");
+// setTimeout(() => {
+//   console.log("Lamaa banget 5 detik nggak dibales-baless");
+// }, 5000);
+// console.log("mandii dulu minimal..");
+
+// akan berjalan terus
+// setInterval(() => {
+//   console.log(Math.random());
+// }, 2000);
+
+// biar berhenti
+// const interval = setInterval(() => {
+//   console.log(Math.random());
+// }, 2000);
+// tanpa dipanggil variable interval akan tetap tereksekusi dan cara berhentinya pakek clearInterval(interval)
+
+// FILTER
+// suatu fungction yang akan mengembaliukan nilai array lagi yang sudah dimanipulasi sesuai denga kriteria yang ditetapkan
+// const angka = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const ganjil = angka.filter((n) => {
+//   return n % 2 === 1;
+// });
+
+// const animes = [
+//   {
+//     title: "Attack on Titan",
+//     rating: 90,
+//     year: 2013,
+//   },
+//   {
+//     title: "One Peace",
+//     rating: 99,
+//     year: 2000,
+//   },
+//   {
+//     title: "Bleach",
+//     rating: 89,
+//     year: 2012,
+//   },
+//   {
+//     title: "Naruto",
+//     rating: 99,
+//     year: 2002,
+//   },
+// ];
+
+// const animeBagus = animes.filter((anime) => anime.rating >= 90);
+// // bisa pakek map
+// const judulAnimeBagus = animeBagus.map((anime) => anime.title);
+// // bisa juga jadi 1 sintak, tapi kalo mau eksekusi harus di copy dan paste di browser karn anggak disimpan
+// animes.filter((anime) => anime.rating >= 90).map((anime) => anime.title);
+// //bisa disimpan di variabel
+// const judulAnimeBagusBaru = animes
+//   .filter((anime) => anime.rating >= 90)
+//   .map((anime) => anime.title);
+
+// const animeCukupBagus = animes.filter((anime) => anime.rating < 90);
+// const animeLama = animes.filter((anime) => anime.year < 2010);
+
+// MENENTUKAN BENAR ATAU SALAH PADA ARRAY DENGAN EVERY DAN SOME METHOID
+//everyy akan mengembalikan nilai boolean. true [ada saat seluruh nilai yang ada pada suatu array memiliki kriteria yang sama. false jika sebaliknya.
+// const kataKataEvery = ["kita", "kamu", "saya"];
+// kata.every((kata) => {
+//   return kata.length === 4;
+// });
+//some
+//mirip dengan every, tapi lebih fleksibel. hasilnya akan true jika salah isi dari array memiliki kriteria yang sama. akan false jika sama sekali tidak ada yang sesuai kriteria
+// const kataKataSome = ["kita", "kamu", "saya", "aku"];
+// kataKataSome.some((kataa) => {
+//   return kataa.length === 4;
+// });
+// every, salah satu nilai kiurang dari 75 maka akan false
+// const examScore = [80, 85, 75, 90, 94, 77];
+// const isGraduate = examScore.every((score) => score >= 75);
+
+// some, satu salah maka akan tetap true
+// const examScore = [80, 85, 70, 90, 94, 77];
+// const isGraduate = examScore.some((score) => score >= 75);
+
+// some, satu benar maka akan tetap true
+// const animes = [
+//   {
+//     title: "Attack on Titan",
+//     rating: 90,
+//     year: 2013,
+//   },
+//   {
+//     title: "One Peace",
+//     rating: 99,
+//     year: 2000,
+//   },
+//   {
+//     title: "Bleach",
+//     rating: 89,
+//     year: 2012,
+//   },
+//   {
+//     title: "Naruto",
+//     rating: 99,
+//     year: 2002,
+//   },
+//   {
+//     title: "Hunter x Hunter",
+//     rating: 87,
+//     year: 2015,
+//   },
+// ];
+
+// const isAnimeListNew = animes.some((anime) => anime.year > 2020);
+// // kalo diubah jadi 2020 maka akan false
+
+// MENDAPATKAN SATU NILAI SESUAI KONDISI DARI SEBUAH ARRAY DENGAN REDUCE
+// REDUCE melakukan proses sebanyak element milik suatu array. Nilai baliknya adalah single value
+// const subtotal = [1500, 20000, 4000, 19000, 32000];
+// const total = subtotal.reduce((curretTotal, singleSubtotal) => {
+//   return curretTotal + singleSubtotal;
+// });
+
+// const examScore = [80, 75, 56, 78, 90, 89, 85];
+// let total = 0;
+// for (let score of examScore) {
+//   total += score;
+// }
+
+// implementasi reduce
+// const examScore = [80, 75, 56, 78, 90, 89, 85];
+// const total = examScore.reduce((total, score) => {
+//   return total + score;
+// });
+
+// const animes = [
+//   {
+//     title: "Attack on Titan",
+//     rating: 90,
+//     year: 2013,
+//   },
+//   {
+//     title: "One Peace",
+//     rating: 91,
+//     year: 2000,
+//   },
+//   {
+//     title: "Bleach",
+//     rating: 89,
+//     year: 2012,
+//   },
+//   {
+//     title: "Naruto",
+//     rating: 97,
+//     year: 2002,
+//   },
+//   {
+//     title: "Hunter x Hunter",
+//     rating: 87,
+//     year: 2015,
+//   },
+// ];
+
+// const bestAnime = animes.reduce((bestAnime, currAnime) => {
+//   if (currAnime.rating > bestAnime.rating) {
+//     return currAnime;
+//   }
+//   return bestAnime;
+// });
+
+// kalo pengen tau prosesnya di console.log
+// const bestAnime = animes.reduce((bestAnime, currAnime) => {
+//   console.log(bestAnime, currAnime);
+//   if (currAnime.rating > bestAnime.rating) {
+//     return currAnime;
+//   }
+//   return bestAnime;
+// });
+
+// const lowAnime = animes.reduce((lowAnime, currAnime) => {
+//   console.log(lowAnime, currAnime);
+//   if (currAnime.rating < lowAnime.rating) {
+//     return currAnime;
+//   }
+//   return lowAnime;
+// });
+
+// OBEJCT THIS DI DALAM ARROW FUNCTION MENGARAH PADA OBJECT GLOBAL WINDOW
+// const person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   fullName: function () {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+// panggilnya person.fullname()
+// const person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   fullName: () => {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+// maka outputnya undefined undefined karena objeknya mengarah ke window
+// const person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   fullName: () => {
+//     console.log(this);
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+//   panggilNanti: function () {
+//     setTimeout(function () {
+//       console.log(this.firstName);
+//     }, 3000);
+//     // maka akan undefined juga karena kalo console this maka objej adanya di global window
+//   },
+// };
