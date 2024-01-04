@@ -699,3 +699,158 @@
 //     // maka akan undefined juga karena kalo console this maka objej adanya di global window
 //   },
 // };
+
+// MENGATUR DEFAULT VALUE PADA FUNCTION
+// default value parameter
+// nilai yang digunakan saat fungsi dipanggil tapi tidak diberi nilai argumen yang diperlukan
+// function perkalian(a, b) {
+//   b = typeof b !== "undefined" ? b : 1;
+//   return a * b;
+// }
+
+// function perkalian(a, b = 1) {
+//   return a * b;
+// }
+
+// function lemparDadu(sisi = 6) {
+//   return Math.floor(Math.random() * sisi) + 1;
+// }
+
+// kalau user lupa memasukkan parameter maka hasilnya NaN, kalau nggak mau NaN defaultnya sisi = 6
+// ngak cuma angka
+// function sapa(nama = "User", msg = "selamat bekerja") {
+//   console.log(`${nama} ${msg}`);
+// }
+// // output user selamat bekerja
+// function sapa(msg = "selamat bekerja", nama) {
+//   console.log(`${nama} ${msg}`);
+// }
+// sapa('kaka') maka msgnya akan berubah jadi kaka
+// BIASANYA KALO INPUTA YANG MEMPUNYAI DEFAULT VALUE ITU ADA DI BELAKANG
+
+// MENGUBAH ARRAY ATAU OBJECT MENJADI DERET VALUE ARGUMENT FUNCTION
+// SPREAD OPERATOR PADA FUNCTION
+// Mengubah suatu array atau object bahkan string menjadi deret parameter untuk function
+// const angka = [1, 2, 3, 4];
+// Math.max(angka); //NAN
+// Math.max(...angka); //4
+// (1,2,3,4)
+// angka di dalam array gabisa. haru diubah dulu parameternya pakek spread
+// SPREAD = ...angka
+
+// MENGGGABUNGKAN NILAI ARRAY DENGAN ARRAY LAGI
+//MERGER ARRAY DENGAN SPREAD OPERATOR
+// const angka = [1, 2, 3, 4];
+// const nama = ["Alex", "Bimo", "Cici", "Dila"];
+
+// //angka.push(0)
+// //const campuran = [...angka, 0, 'a', 'b'] ini untuk menambahkan nilai di array angka tanpa mengubah variable angka di atas
+// const campuran = [...angka, ...nama]; // urutannya berpengaruh
+
+// MENGGABUNGKAN PROPERTY OBJECT DENGAN OBJECT LAIN DENGAN SPREAD
+// const user = {
+//   name: "John",
+//   phone: 628122334,
+// };
+
+// const credential = {
+//   password: "password",
+//   token: "uweruywgh2389",
+// };
+
+// // const userBaru = { ...user, id: 22081010030, password: "pass" };
+// const userBaru = { ...user, ...credential };
+
+// MALAS BIIN PARAMETER BANYAK BISA PAKAI REST PARAM
+// misal parameternya itu 1 sampai n dan males banget buat parameter
+// function summAll(...nums) {
+//   let total = 0;
+//   for (let n of nums) total += n;
+//   return total;
+// }
+
+// const sumAll = (...nums) => {
+//   return nums.reduce((total, el) => total + el);
+// };
+
+// const nama = ["Alex", "Bimo", "Cici", "Dila", "Kiki"];
+
+// const pemenang = (gold, silver, bronze, ...sisa) => {
+//   console.log(`Medali emas diraih oleh ${gold}`);
+//   console.log(`Medali silver diraih oleh ${silver}`);
+//   console.log(`Medali bronze diraih oleh ${bronze}`);
+//   console.log(`Peserta lainnya ${sisa}`);
+// };
+// cara panggilnya pemenang(...nama)
+
+// BONGKART ELMENT ARRAY KE MASING-MASING VARIABEL DENGAN MUDAH
+// DESTRUCTING
+// unboxing versi array dan object. Kita mulai dengan array aja duluu ygy
+
+// const nama = ["Batman", "Spider", "Ironman", "Spongebob", "Patrick"];
+// const [gold, silver, bronze, ...peserta] = nama;
+
+// destructing versi objek
+// const user = {
+//   name: "John",
+//   email: "user@mail.com",
+// };
+
+// // biasanya kan kalo manggil nilainya itu pakek user.name, cara agar lebih pendek di bawah ini
+// // const { name, email } = user;
+// // pangggilnya cukup name, email. bisa juga tetep user.name
+// // misal yang di const itu nggak mau pakek name, bisa dikasih alias name: nama
+// // kalo yang dipanggil itu user.name itu ada kalo user.nama ggada
+// const { name: nama, email } = user;
+// kalo mau nambahin yang nggak ada yaa tinggal didefinisikan saja
+// const { name: nama, email, phone = "628182713" } = user;
+
+// BONGKAR PROPERTY OBJECT BISA DILAKUKAN DI DALAM FUNCTION (PARAMETER)
+// const user = {
+//   name: "John",
+//   email: "user@mail.com",
+//   role: "admin",
+// };
+
+// const userAndRole = ({ name, role }) => {
+//   return `${name} - ${role}`;
+// };
+
+// userAndRole(user);
+
+// const animes = [
+//   {
+//     title: "Attack on Titan",
+//     rating: 90,
+//     year: 2013,
+//   },
+//   {
+//     title: "One Peace",
+//     rating: 91,
+//     year: 2000,
+//   },
+//   {
+//     title: "Bleach",
+//     rating: 89,
+//     year: 2012,
+//   },
+//   {
+//     title: "Naruto",
+//     rating: 97,
+//     year: 2002,
+//   },
+//   {
+//     title: "Hunter x Hunter",
+//     rating: 87,
+//     year: 2015,
+//   },
+// ];
+
+// const anime = animes.map((anime) => {
+//   return `${anime.title} (${anime.year}) rating ${anime.rating}`
+// })
+
+// biar langsung ke title
+// const anime = animes.map(({ title, year, rating }) => {
+//   return `${title} (${year}) rating ${rating}`;
+// });
